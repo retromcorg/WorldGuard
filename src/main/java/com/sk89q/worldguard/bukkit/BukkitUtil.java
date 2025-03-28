@@ -132,7 +132,7 @@ public class BukkitUtil {
 
     /**
      * Checks if the given block is water
-     * 
+     *
      * @param world
      * @param ox
      * @param oy
@@ -143,6 +143,42 @@ public class BukkitUtil {
         Block block = world.getBlockAt(ox, oy, oz);
         int id = block.getTypeId();
         if (id == 8 || id == 9) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * Sets the given block to fluid lava.
+     * Used by addSpongeLava()
+     *
+     * @param world
+     * @param ox
+     * @param oy
+     * @param oz
+     */
+    public static void setBlockToLava(World world, int ox, int oy, int oz) {
+        Block block = world.getBlockAt(ox, oy, oz);
+        int id = block.getTypeId();
+        if (id == 0) {
+            block.setTypeId(10);
+        }
+    }
+
+    /**
+     * Checks if the given block is lava
+     *
+     * @param world
+     * @param ox
+     * @param oy
+     * @param oz
+     * @return
+     */
+    public static boolean isBlockLava(World world, int ox, int oy, int oz) {
+        Block block = world.getBlockAt(ox, oy, oz);
+        int id = block.getTypeId();
+        if (id == 10 || id == 11) {
             return true;
         } else {
             return false;

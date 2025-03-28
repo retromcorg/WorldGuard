@@ -544,6 +544,7 @@ public class WorldGuardBlockListener extends BlockListener {
             int oz = blockPlaced.getZ();
 
             SpongeUtil.clearSpongeWater(plugin, world, ox, oy, oz);
+            SpongeUtilLava.clearSpongeLava(plugin, world, ox, oy, oz);
         }
     }
 
@@ -571,9 +572,11 @@ public class WorldGuardBlockListener extends BlockListener {
                         if (sponge.getTypeId() == 19
                                 && sponge.isBlockIndirectlyPowered()) {
                             SpongeUtil.clearSpongeWater(plugin, world, ox + cx, oy + cy, oz + cz);
+                            SpongeUtilLava.clearSpongeLava(plugin, world, ox + cx, oy + cy, oz + cz);
                         } else if (sponge.getTypeId() == 19
                                 && !sponge.isBlockIndirectlyPowered()) {
                             SpongeUtil.addSpongeWater(plugin, world, ox + cx, oy + cy, oz + cz);
+                            SpongeUtilLava.addSpongeLava(plugin, world, ox + cx, oy + cy, oz + cz);
                         }
                     }
                 }
